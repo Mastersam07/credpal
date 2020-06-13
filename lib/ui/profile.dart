@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:credpal/utils/styles.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+import 'package:date_field/date_field.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -10,8 +11,14 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  PageController controller = PageController();
   DateTime selectedDate;
+  String sel1;
+  String level;
+  String nation;
+  String status;
+  String marital;
+  String relate;
+  PageController controller = PageController();
 
   var currentPageValue = 0.0;
 
@@ -74,158 +81,391 @@ class _ProfileState extends State<Profile> {
               ),
             ),
           ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
+          Container(
+              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 20.0),
+              child: Column(
+                children: <Widget>[
+                  Row(
                     children: <Widget>[
-                      Text(
-                        'Date of Birth',
-                        style: TextStyle(color: Themes.blue),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Date of Birth",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                DateField(
+                                  selectedDate: selectedDate,
+                                  onDateSelected: (DateTime date) {
+                                    setState(() {
+                                      selectedDate = date;
+                                    });
+                                  },
+                                  lastDate: DateTime(2020),
+                                ),
+                              ],
+                            )),
+                      ),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Gender",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                DropdownButton<String>(
+                                  hint: Text("Select"),
+                                  value: sel1,
+                                  underline: SizedBox(),
+                                  items: ["Male", "Female"].map((value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  isExpanded: true,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      sel1 = value;
+                                    });
+                                    FocusScope.of(context).unfocus();
+                                  },
+                                ),
+                                Divider(
+                                  color: Colors.black38,
+                                )
+                              ],
+                            )),
                       ),
                     ],
                   ),
-                ),
-                Container(
-                  child: Column(
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Residential Address",
+                            style: TextStyle(color: Colors.blueAccent),
+                          ),
+                          TextField(
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(
+                                  top: 20), // add padding to adjust text
+                              isDense: true,
+                              hintText: "Address",
+                              prefixIcon: Icon(Icons.home),
+                            ),
+                          ),
+                        ],
+                      )),
+                  Row(
                     children: <Widget>[
-                      Text(
-                        'Gender',
-                        style: TextStyle(color: Themes.blue),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Education Level",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                DropdownButton<String>(
+                                  hint: Text("Select"),
+                                  value: level,
+                                  underline: SizedBox(),
+                                  items: ["Graduate", "School Cert"].map((value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  isExpanded: true,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      level = value;
+                                    });
+                                    FocusScope.of(context).unfocus();
+                                  },
+                                ),
+                                Divider(
+                                  color: Colors.black38,
+                                )
+                              ],
+                            )),
+                      ),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Nationality",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                DropdownButton<String>(
+                                  hint: Text("Select"),
+                                  value: nation,
+                                  underline: SizedBox(),
+                                  items: ["Nigeria", "Non-Nigeria"].map((value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  isExpanded: true,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      nation = value;
+                                    });
+                                    FocusScope.of(context).unfocus();
+                                  },
+                                ),
+                                Divider(
+                                  color: Colors.black38,
+                                )
+                              ],
+                            )),
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
-            child: Text(
-              'Residential Address',
-              style: TextStyle(color: Themes.blue),
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                  Row(
                     children: <Widget>[
-                      Text(
-                        'Date of Birth',
-                        style: TextStyle(color: Themes.blue),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Employment Status",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                DropdownButton<String>(
+                                  hint: Text("Select"),
+                                  value: status,
+                                  underline: SizedBox(),
+                                  items: ["Employed", "Umemployed"].map((value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  isExpanded: true,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      status = value;
+                                    });
+                                    FocusScope.of(context).unfocus();
+                                  },
+                                ),
+                                Divider(
+                                  color: Colors.black38,
+                                )
+                              ],
+                            )),
+                      ),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Marital Status",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                DropdownButton<String>(
+                                  hint: Text("Select"),
+                                  value: marital,
+                                  underline: SizedBox(),
+                                  items: ["Single", "Married"].map((value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  isExpanded: true,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      marital = value;
+                                    });
+                                    FocusScope.of(context).unfocus();
+                                  },
+                                ),
+                                Divider(
+                                  color: Colors.black38,
+                                )
+                              ],
+                            )),
                       ),
                     ],
                   ),
-                ),
-                Text(
-                  'Gender',
-                  style: TextStyle(color: Themes.blue),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                  Row(
                     children: <Widget>[
-                      Text(
-                        'Date of Birth',
-                        style: TextStyle(color: Themes.blue),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Guarantor's Name",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                DropdownButton<String>(
+                                  hint: Text("Select"),
+                                  value: sel1,
+                                  underline: SizedBox(),
+                                  items: ["Male", "Female"].map((value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  isExpanded: true,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      sel1 = value;
+                                    });
+                                    FocusScope.of(context).unfocus();
+                                  },
+                                ),
+                                Divider(
+                                  color: Colors.black38,
+                                )
+                              ],
+                            )),
+                      ),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Relationship",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                DropdownButton<String>(
+                                  hint: Text("Select"),
+                                  value: relate,
+                                  underline: SizedBox(),
+                                  items: ["Brother", "Sister", "Father", "Mother"].map((value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  isExpanded: true,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      relate = value;
+                                    });
+                                    FocusScope.of(context).unfocus();
+                                  },
+                                ),
+                                Divider(
+                                  color: Colors.black38,
+                                )
+                              ],
+                            )),
                       ),
                     ],
                   ),
-                ),
-                Container(
-                  child: Column(
+                  Row(
                     children: <Widget>[
-                      Text(
-                        'Gender',
-                        style: TextStyle(color: Themes.blue),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Guarantor's Address",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.only(
+                                        top: 20), // add padding to adjust text
+                                    isDense: true,
+                                    hintText: "Address",
+                                    prefixIcon: Icon(Icons.home),
+                                  ),
+                                ),
+                              ],
+                            )),
+                      ),
+                      Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Guarantor's Number",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.only(
+                                        top: 20), // add padding to adjust text
+                                    isDense: true,
+                                    hintText: "Number",
+                                    prefixIcon: Icon(Icons.phone),
+                                  ),
+                                ),
+                              ],
+                            )),
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text(
-                        'Date of Birth',
-                        style: TextStyle(color: Themes.blue),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Gender',
-                        style: TextStyle(color: Themes.blue),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text(
-                        "Guarantor's Address",
-                        style: TextStyle(color: Themes.blue),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        "Guarantor's Contact Number",
-                        style: TextStyle(color: Themes.blue),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+                ],
+              )),
           Center(
             child: FlatButton(
               color: Themes.blue,

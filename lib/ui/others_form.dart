@@ -155,7 +155,7 @@ class OthersForm extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Route 7, Ink Park, Toronto,....o,CA.",
+                  "Route 7, Ink Park, Toronto,....o, CA.",
                 ),
               ],
             ),
