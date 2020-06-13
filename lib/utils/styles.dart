@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-class Colors {
-  const Colors();
+class Themes {
+  const Themes();
   static const Color background = const Color(0xFFFFFFFF);
   static const Color blue = const Color(0xFF274FED);
   static const Color red = const Color(0xFFFE2B5E);
