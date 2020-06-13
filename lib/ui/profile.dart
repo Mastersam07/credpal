@@ -93,9 +93,12 @@ class _ProfileState extends State<Profile> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  "Date of Birth",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 7.0),
+                                  child: Text(
+                                    "Date of Birth",
+                                    style: TextStyle(color: Themes.blue),
+                                  ),
                                 ),
                                 DateField(
                                   selectedDate: selectedDate,
@@ -117,7 +120,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Gender",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 DropdownButton<String>(
                                   hint: Text("Select"),
@@ -157,7 +160,7 @@ class _ProfileState extends State<Profile> {
                         children: <Widget>[
                           Text(
                             "Residential Address",
-                            style: TextStyle(color: Colors.blueAccent),
+                            style: TextStyle(color: Themes.blue),
                           ),
                           TextField(
                             decoration: InputDecoration(
@@ -180,7 +183,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Education Level",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 DropdownButton<String>(
                                   hint: Text("Select"),
@@ -219,7 +222,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Nationality",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 DropdownButton<String>(
                                   hint: Text("Select"),
@@ -262,7 +265,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Employment Status",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 DropdownButton<String>(
                                   hint: Text("Select"),
@@ -301,7 +304,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Marital Status",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 DropdownButton<String>(
                                   hint: Text("Select"),
@@ -344,7 +347,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Guarantor's Name",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 DropdownButton<String>(
                                   hint: Text("Select"),
@@ -383,7 +386,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Relationship",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 DropdownButton<String>(
                                   hint: Text("Select"),
@@ -426,7 +429,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Guarantor's Address",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 TextField(
                                   decoration: InputDecoration(
@@ -448,7 +451,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 Text(
                                   "Guarantor's Number",
-                                  style: TextStyle(color: Colors.blueAccent),
+                                  style: TextStyle(color: Themes.blue),
                                 ),
                                 TextField(
                                   decoration: InputDecoration(
