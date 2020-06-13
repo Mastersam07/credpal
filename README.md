@@ -5,10 +5,22 @@ Credpal flutter dev challenge.
 ![Client Tests](https://github.com/Mastersam07/credpal/workflows/Client%20Tests/badge.svg)
 ![Client Build](https://github.com/Mastersam07/credpal/workflows/Client%20Build/badge.svg)
 
-## 📸 ScreenShots
+> **Disclaimer:** This is a flutter developer challenge
 
+## App
+Download the `app-release.apk` to try out the release version
+<br>
+<a href="./app-release.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+<br>
 
-|<img src="ss/Screenshot (483).png" width="250">|
+## 📸
+
+<img src="ss/Screenshot (483).png" width="250">
+
+| Images| Images|
+|------|-------|
+|<img src="ss/1.png" width="250">|<img src="ss/2.png" width="250">|
+|<img src="ss/3.png" width="250">||
 
 ## Getting Started
 
