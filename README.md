@@ -5,6 +5,11 @@ Credpal flutter dev challenge.
 ![Client Tests](https://github.com/Mastersam07/credpal/workflows/Client%20Tests/badge.svg)
 ![Client Build](https://github.com/Mastersam07/credpal/workflows/Client%20Build/badge.svg)
 
+## 📸 ScreenShots
+
+
+|<img src="ss/Screenshot (483).png" width="250">|
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
