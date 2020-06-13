@@ -22,7 +22,10 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Themes.background,
-        leading: Icon(Icons.arrow_back_ios, color: Themes.pureblack,),
+        leading: Icon(
+          Icons.arrow_back_ios,
+          color: Themes.pureblack,
+        ),
         actions: <Widget>[
           Center(
             child: Padding(
