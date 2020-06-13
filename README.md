@@ -15,8 +15,6 @@ Download the `app-release.apk` to try out the release version
 
 ## 📸
 
-<img src="ss/Screenshot (483).png" width="250">
-
 | Images| Images|
 |------|-------|
 |<img src="ss/1.png" width="250">|<img src="ss/2.png" width="250">|
