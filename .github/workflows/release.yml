@@ -1,0 +1,25 @@
+name: Release Tags
+on:
+  push: # calls action on push
+    tags:  # calls action on push to tag
+    - v*
+jobs:
+  build-android:
+    name: Build Android app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.17.5' # use the version that corresponds with your project
+          channel: 'stable' # use the channel that corresponds with your project
+      - run: flutter pub get
+      - run: flutter build apk # this is a fat apk. to split, use flutter build apk --split-per-abi
+      - name: Create a release apk
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/release/*.apk"
+          token: ${{ secrets.SOME_TOKEN }}
