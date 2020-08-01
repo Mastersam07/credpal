@@ -27,7 +27,14 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: ${{ env.flutter_version }}
+      - name: Cache Flutter packages
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: /opt/hostedtoolcache/flutter
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: flutter pub get
       - name: Format code
         run: flutter format lib/
@@ -55,7 +62,14 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: ${{ env.flutter_version }}
+      - name: Cache Flutter packages
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: /opt/hostedtoolcache/flutter
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: flutter pub get
       - name: Build
         run: flutter build apk
@@ -75,7 +89,14 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: ${{ env.flutter_version }}
+      - name: Cache Flutter packages
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: /Users/runner/hostedtoolcache/flutter
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: flutter pub get
       - name: Build
         run: flutter build ios --no-codesign
