@@ -33,6 +33,9 @@ jobs:
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.OS }}-pub-
+            ${{ runner.OS }}-
       - name: Install dependencies
         run: flutter pub get
       - name: Format code
@@ -64,6 +67,9 @@ jobs:
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.OS }}-pub-
+            ${{ runner.OS }}-
       - name: Install dependencies
         run: flutter pub get
       - name: Build
@@ -88,6 +94,9 @@ jobs:
         with:
           path: /Users/runner/hostedtoolcache/flutter
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.OS }}-pub-
+            ${{ runner.OS }}-
       - name: Install dependencies
         run: flutter pub get
       - name: Build
